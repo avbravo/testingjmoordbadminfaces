@@ -124,6 +124,10 @@ public class EstatusController implements Serializable, IController {
                     .build();
 
             start();
+            List<Estatus> list = estatusRepository.findAll();
+            for(Estatus e:list){
+                System.out.println("....> "+e.getIdestatus());
+            }
 
         } catch (Exception e) {
             errorServices.errorMessage(nameOfClass(), nameOfMethod(), e.getLocalizedMessage());
