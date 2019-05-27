@@ -1,0 +1,98 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:adm="http://github.com/adminfaces"
+                template="#{layoutMB.template}">
+
+
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="bordeless" value="#{layoutMB.borderless}" converter="javax.faces.Boolean"/>
+        </f:metadata>
+        <ui:param name="enableSlideMenu" value="false"/> <!-- disables slide menu (only on this page) on small screens -->
+        <ui:param name="autoShowNavbar" value="false"/> <!-- disables auto show navbar (only on this page) on small devices -->
+        <style type="text/css">
+            .header-right.ui-datatable .ui-datatable-header {
+                text-align: right !important;
+            }
+
+            .ui-button-text-only .ui-button-text {
+                padding: 0.3em 0.4em;
+            }
+
+            .ui-selectcheckboxmenu-panel .ui-selectcheckboxmenu-header .ui-chkbox {
+                display: none;
+            }
+        </style>
+    </ui:define>
+    <ui:define name="title">
+        Datatable
+    </ui:define>
+
+    <ui:define name="description">
+        This page shows Primefaces datatable.
+    </ui:define>
+
+    <ui:define name="body">
+        <adm:breadcrumb title="Datatable"/>
+        <p:panel styleClass="card box-primary" header="Datatable">
+            <h:form prependId="false">
+                <div>
+                    <p:tooltip for="borderless" escape="false" position="top" value="Turns borderless tables on, just add &lt;code&gt;no-border&lt;/code&gt; class to all datatables."/>
+                    <p:outputLabel value="Borderless tables?" for="borderless"/>
+                    <p:inputSwitch id="borderless" value="#{layoutMB.borderless}">
+                        <p:ajax update="@this @(.ui-datatable, .ui-treetable)"/>
+                    </p:inputSwitch>
+                </div>
+                <p:spacer height="15px"/>
+
+                <div id="datatable">
+                    <p:dataTable  value="#{estatusController.estatusDataModel}" 
+                                  widgetVar="carsTable" 
+                                  styleClass="header-right #{layoutMB.borderless ? 'no-border':''}"
+                                
+                                 
+                                    var="item"
+                             id="dataTable2"
+                             paginator="false"
+                            >
+
+                       
+                        <p:column width="5%" selectionMode="multiple"
+                                  styleClass="align-center"
+                                  priority="1"/>
+
+                        <p:column filterBy="#{item.idestatus}" sortBy="#{car.idestatus}" headerText="Id" footerText="contains"
+                                  filterMatchMode="contains" priority="1">
+                            <p:link value="#{item.idestatus}" outcome="/index.xhtml">
+                                <f:param name="id" value="#{item.idestatus}"/>
+                            </p:link>
+                        </p:column>
+
+                      
+                    </p:dataTable>
+                </div>
+                <p:spacer/>
+
+
+            </h:form>
+        </p:panel>
+
+      
+
+
+
+
+
+   
+   
+   
+   
+    </ui:define>
+
+    <ui:define name="code">
+       
+    </ui:define>
+</ui:composition>

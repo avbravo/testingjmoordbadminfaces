@@ -1,0 +1,56 @@
+<ui:com.avbravoposition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com.avbravo/jsf/facelets"
+                xmlns:h="http://java.sun.com.avbravo/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com.avbravo/jsf/core"
+                xmlns:adm="http://github.com.avbravo/adminfaces"
+                template="#{layoutMB.template}">
+
+    <ui:define name="title">
+        Sidebar
+    </ui:define>
+
+    <ui:define name="description">
+        Sidebar is a panel com.avbravoponent displayed as an overlay.
+    </ui:define>
+
+    <ui:define name="body">
+        <adm:breadcrumb title="Sidebar"/>
+        <h:form>
+            <p:sidebar widgetVar="sidebar1" baseZIndex="10000">
+                <h1 style="font-weight:normal">Left Sidebar</h1>
+                <p:com.avbravomandButton value="Cancel" styleClass="btn-default" oncom.avbravoplete="PF('sidebar1').hide()"/>
+            </p:sidebar>
+
+            <p:sidebar widgetVar="sidebar2" position="right" baseZIndex="10000">
+                <h1 style="font-weight:normal">Right Sidebar</h1>
+                <p:com.avbravomandButton value="Cancel" styleClass="btn-default" oncom.avbravoplete="PF('sidebar2').hide()"/>
+            </p:sidebar>
+
+            <p:sidebar widgetVar="sidebar3" position="top" baseZIndex="10000">
+                <h1 style="font-weight:normal">Top Sidebar</h1>
+                <p:com.avbravomandButton value="Cancel" styleClass="btn-default" oncom.avbravoplete="PF('sidebar3').hide()"/>
+            </p:sidebar>
+
+            <p:sidebar widgetVar="sidebar4" position="bottom" baseZIndex="10000">
+                <h1 style="font-weight:normal">Bottom Sidebar</h1>
+                <p:com.avbravomandButton value="Cancel" styleClass="btn-default" oncom.avbravoplete="PF('sidebar4').hide()"/>
+            </p:sidebar>
+
+            <p:sidebar widgetVar="sidebar5" fullScreen="true" baseZIndex="10000">
+                <h1 style="font-weight:normal">Full Screen Sidebar</h1>
+                <p:com.avbravomandButton value="Cancel" styleClass="btn-danger" oncom.avbravoplete="PF('sidebar5').hide()"/>
+            </p:sidebar>
+
+            <p:com.avbravomandButton icon="fa fa-arrow-right" oncom.avbravoplete="PF('sidebar1').show()"/>
+            <p:com.avbravomandButton icon="fa fa-arrow-left" oncom.avbravoplete="PF('sidebar2').show()"/>
+            <p:com.avbravomandButton icon="fa fa-arrow-down" oncom.avbravoplete="PF('sidebar3').show()"/>
+            <p:com.avbravomandButton icon="fa fa-arrow-up" oncom.avbravoplete="PF('sidebar4').show()"/>
+            <p:com.avbravomandButton icon="fa fa-arrows-alt" oncom.avbravoplete="PF('sidebar5').show()"/>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="code">
+       
+    </ui:define>
+</ui:com.avbravoposition>
